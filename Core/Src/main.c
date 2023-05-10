@@ -98,9 +98,9 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
+	MX_GPIO_Init();
   MX_DMA_Init();
-  MX_I2C1_Init();
+	MX_I2C1_Init();
   MX_TIM1_Init();
   MX_TIM14_Init();
   MX_IWDG_Init();
@@ -114,6 +114,7 @@ int main(void)
 	state_system.status_init = INIT_NO;
 	state_system.current_step = STEP_INIT_ACCELETOMETER;
 	state_system.acceleration = ACCELERATION;
+	state_system.wait_command = COMMAND_INIT;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -127,8 +128,8 @@ int main(void)
 			check_voltage(&state_system);
 		}
 		
-		if(state_system.flag_check_PWM == 1){
-				state_system.flag_check_PWM = 0;
+		if(state_system.flag_new_cmd == 1){
+				state_system.flag_new_cmd = 0;
 				check_PWM(&state_system);
 			}
 			
@@ -184,6 +185,8 @@ int main(void)
 			}
 			case STEP_DISCHARGE:{
 				control_supercapacitor(RESET, &state_system);
+				state_system.wait_command = COMMAND_INIT;
+				state_system.command = COMMAND_NO;
 			break;
 			}
 			default:{

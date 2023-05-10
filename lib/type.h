@@ -21,15 +21,15 @@ typedef enum{
 
 typedef enum{
 	STEP_INIT_ACCELETOMETER = 0,
-	STEP_WAIT_COMMAND,
-	STEP_COMMAND_INIT,
-	STEP_COMMAND_READY,
-	STEP_COMMAND_CHARGE,
-	STEP_WAIT_COMMAND_SANCTION,
-  STEP_COMMAND_SANCTION,
-	STEP_COMMAND_ACTIVATE,
-	STEP_EXPLOSION,
-	STEP_DISCHARGE
+	STEP_WAIT_COMMAND = 0xAF55,
+	STEP_COMMAND_INIT = 0x2307,
+	STEP_COMMAND_READY = 0x38B4,
+	STEP_COMMAND_CHARGE = 0x5AC4,
+	STEP_WAIT_COMMAND_SANCTION = 0x22a3,
+  STEP_COMMAND_SANCTION = 0x5675,
+	STEP_COMMAND_ACTIVATE = 0x1130,
+	STEP_EXPLOSION = 0x589D,
+	STEP_DISCHARGE = 0xABCD
 }TE_current_step;
 
 typedef enum{
@@ -42,6 +42,8 @@ typedef struct {
 	TE_current_step current_step;
 	
 	TE_command command;
+	TE_command wait_command;
+	uint8_t flag_new_cmd;
 	
 	TE_status_supercapacitor status_supercapacitor;
 	
@@ -49,7 +51,7 @@ typedef struct {
 	TE_init status_init;
 	
 	uint8_t flag_check_voltage;
-	uint8_t flag_check_PWM;
+	//uint8_t flag_check_PWM;
 	
 	uint16_t ADC_Data[3];
 	float voltage;

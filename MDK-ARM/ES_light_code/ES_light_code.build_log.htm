@@ -27,16 +27,19 @@ Project File Date:  04/25/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'ES_light_code'
-compiling main.c...
-compiling stm32g0xx_hal_msp.c...
 compiling stm32g0xx_it.c...
-compiling control_functions.c...
+compiling stm32g0xx_hal_msp.c...
+compiling main.c...
 compiling timer.c...
 compiling mc3416.c...
+compiling control_functions.c...
+..\lib\control_functions.c(84): warning:  #188-D: enumerated type mixed with another type
+  		static  TE_command tmp_last_cmd = 0;
+..\lib\control_functions.c: 1 warning, 0 errors
 linking...
-Program Size: Code=19288 RO-data=520 RW-data=28 ZI-data=3292  
+Program Size: Code=19500 RO-data=520 RW-data=32 ZI-data=3296  
 FromELF: creating hex file...
-"ES_light_code\ES_light_code.axf" - 0 Error(s), 0 Warning(s).
+"ES_light_code\ES_light_code.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,10 +57,10 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-      Source file:   CMSIS\Core\Template\ARMv8-M\tz_context.c
       Include file:  CMSIS\Core\Include\tz_context.h
+      Source file:   CMSIS\Core\Template\ARMv8-M\tz_context.c
       Source file:   CMSIS\Core\Template\ARMv8-M\main_s.c
-Build Time Elapsed:  00:00:33
+Build Time Elapsed:  00:00:38
 </pre>
 </body>
 </html>
