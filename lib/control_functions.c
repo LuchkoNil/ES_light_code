@@ -17,41 +17,55 @@ void control_supercapacitor(FlagStatus state, TS_state_system *state_system){
 void check_voltage(TS_state_system *state_system){
 	if(state_system->status_supercapacitor == CHARGE){
 		if(state_system->voltage <= VOLTAGE_EXP){
-			state_system->current_step = STEP_EXPLOSION;
+			state_system->current_step = STEP_COMMAND_ACTIVATE;
 		}
 	}
 }
 
 void check_PWM(TS_state_system *state_system){
 		
-	if(state_system->status_init != INIT)return;
+	if(state_system->status_init != INIT_ACC)return;
 					
-			if( state_system->wait_command != state_system->command){
-				state_system->current_step = STEP_DISCHARGE;
-				//return;
+			if( state_system->wait_command == state_system->command){
+				
+				if((state_system->command == COMMAND_INIT)&&(state_system->wait_command == COMMAND_INIT)){
+					state_system->current_step = STEP_COMMAND_INIT;
+					state_system->wait_command = COMMAND_READY;
+				}else
+				if((state_system->command == COMMAND_READY)&&(state_system->wait_command  == COMMAND_READY)){
+					state_system->current_step = STEP_COMMAND_READY;
+					state_system->wait_command = COMMAND_CHARGE;
+				}else
+				if((state_system->command == COMMAND_CHARGE)&&(state_system->wait_command  == COMMAND_CHARGE)){
+					state_system->current_step = STEP_COMMAND_CHARGE;
+					state_system->wait_command = COMMAND_SANCTION;
+				}else
+				if((state_system->command == COMMAND_SANCTION)&&(state_system->wait_command  == COMMAND_SANCTION)){
+					state_system->current_step = STEP_COMMAND_SANCTION;
+					state_system->wait_command = COMMAND_ACTIVATE;
+				}else
+				if((state_system->command == COMMAND_ACTIVATE)&&(state_system->wait_command  == COMMAND_ACTIVATE)){
+					state_system->current_step = STEP_COMMAND_ACTIVATE;
+				}
 			}else
-			if((state_system->command == COMMAND_INIT)&&(state_system->wait_command == COMMAND_INIT)){
-				state_system->current_step = STEP_COMMAND_INIT;
-				state_system->wait_command = COMMAND_READY;
-			}else
-			if((state_system->command == COMMAND_READY)&&(state_system->wait_command  == COMMAND_READY)){
-				state_system->current_step = STEP_COMMAND_READY;
-				state_system->wait_command = COMMAND_CHARGE;
-			}else
-			if((state_system->command == COMMAND_CHARGE)&&(state_system->wait_command  == COMMAND_CHARGE)){
-				state_system->current_step = STEP_COMMAND_CHARGE;
-				state_system->wait_command = COMMAND_SANCTION;
-			}else
-			if((state_system->command == COMMAND_SANCTION)&&(state_system->wait_command  == COMMAND_SANCTION)){
-				state_system->current_step = STEP_COMMAND_SANCTION;
-				state_system->wait_command = COMMAND_ACTIVATE;
-			}else
-			if((state_system->command == COMMAND_ACTIVATE)&&(state_system->wait_command  == COMMAND_ACTIVATE)){
-				state_system->current_step = STEP_COMMAND_ACTIVATE;
-				state_system->wait_command = COMMAND_INIT;
+			if( state_system->wait_command > state_system->command){
+				state_system->current_step =  (TE_current_step)state_system->command;
+				
+				if(state_system->command == COMMAND_INIT){
+					state_system->wait_command = COMMAND_READY;
+				}else
+				if(state_system->command == COMMAND_READY){
+					state_system->wait_command = COMMAND_CHARGE;
+				}else
+				if(state_system->command == COMMAND_CHARGE){
+					state_system->wait_command = COMMAND_SANCTION;
+				}else
+				if(state_system->command == COMMAND_SANCTION){
+					state_system->wait_command = COMMAND_ACTIVATE;
+				}
+			
 			}
 }
-
 
 void control_explosion(FlagStatus status_explosion){
 		
@@ -81,7 +95,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
 		uint32_t tmp = 0;
 		double second = 0;
-		static  TE_command tmp_last_cmd = 0;
+		static  TE_command tmp_last_cmd = COMMAND_NO;
 	
     if (htim->Instance == TIM1)
     {

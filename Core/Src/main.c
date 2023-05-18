@@ -98,9 +98,9 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-	MX_GPIO_Init();
+  MX_GPIO_Init();
   MX_DMA_Init();
-	MX_I2C1_Init();
+  MX_I2C1_Init();
   MX_TIM1_Init();
   MX_TIM14_Init();
   MX_IWDG_Init();
@@ -111,7 +111,7 @@ int main(void)
 	HAL_TIM_IC_Start_IT(&htim1, TIM_CHANNEL_1);
 	HAL_TIM_IC_Start_IT(&htim1, TIM_CHANNEL_2);
 	
-	state_system.status_init = INIT_NO;
+	state_system.status_init = INIT_ACC_NO;
 	state_system.current_step = STEP_INIT_ACCELETOMETER;
 	state_system.acceleration = ACCELERATION;
 	state_system.wait_command = COMMAND_INIT;
@@ -135,65 +135,54 @@ int main(void)
 			
 		switch (state_system.current_step) {
 			case STEP_INIT_ACCELETOMETER:{
-				state_system.status_init = MC34X9_Init(&state_system);
-				//state_system.status_init = INIT;
-				if(state_system.status_init == INIT){
-					state_system.current_step = STEP_WAIT_COMMAND;
-				}else {
+				control_supercapacitor(RESET,&state_system);
+				control_explosion(RESET);
+				
+				if((state_system.status_init == INIT_ACC_NO)||(state_system.status_init == INIT_ACC_ERROR)){
+					state_system.status_init = MC34X9_Init(&state_system);
+				}
+				
+				if(state_system.status_init == INIT_ACC_ERROR){
 					state_system.quantity_attempts_init ++;
 					if(state_system.quantity_attempts_init == 5){
-						state_system.current_step = STEP_DISCHARGE;
+						state_system.current_step = STEP_ERROR;
 					}
 				}
 			break;
 			}
-			case STEP_WAIT_COMMAND:{
-				//wait command COMMAND_INIT
-			break;
-			}
 			case STEP_COMMAND_INIT:{
-				//wait command COMMAND_READY
+				control_supercapacitor(RESET,&state_system);
+				control_explosion(RESET);
 			break;
 			}
 			case STEP_COMMAND_READY:{
-				//wait command COMMAND_CHARGE
+				control_supercapacitor(RESET,&state_system);
+				control_explosion(RESET);
 			break;
 			}
 			case STEP_COMMAND_CHARGE:{
 				control_supercapacitor(SET,&state_system);
-				state_system.current_step = STEP_WAIT_COMMAND_SANCTION;
-			break;
-			}
-			case STEP_WAIT_COMMAND_SANCTION:{
-				//wait command COMMAND_SANCTION
 			break;
 			}
 			case STEP_COMMAND_SANCTION:{
+			
 			break;
 			}
 			case STEP_COMMAND_ACTIVATE:{
-				state_system.current_step = STEP_EXPLOSION;
-			break;
-			}
-			case STEP_EXPLOSION:{
 				if(state_system.status_supercapacitor == CHARGE){
-					control_explosion(SET);
-				}else{
-					state_system.current_step = STEP_DISCHARGE;
+				control_explosion(SET);
 				}
 			break;
-			}
-			case STEP_DISCHARGE:{
-				control_supercapacitor(RESET, &state_system);
-				state_system.wait_command = COMMAND_INIT;
-				state_system.command = COMMAND_NO;
+			case STEP_ERROR:{
+
 			break;
 			}
 			default:{
-				state_system.current_step = STEP_DISCHARGE;
+				state_system.current_step = STEP_ERROR;
 			break;
 			}
 		}
+	}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

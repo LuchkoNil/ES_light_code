@@ -3,7 +3,7 @@
 <title>Static Call Graph - [ES_light_code\ES_light_code.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ES_light_code\ES_light_code.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Wed May 10 14:46:00 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu May 18 17:32:10 2023
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1144,7 +1144,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IC_ConfigChannel
 </UL>
 
-<P><STRONG><a name="[cc]"></a>check_PWM</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, control_functions.o(i.check_PWM))
+<P><STRONG><a name="[cc]"></a>check_PWM</STRONG> (Thumb, 192 bytes, Stack size 0 bytes, control_functions.o(i.check_PWM))
 <BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1175,7 +1175,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[36]"></a>main</STRONG> (Thumb, 406 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[36]"></a>main</STRONG> (Thumb, 396 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = main &rArr; MC34X9_Init &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnTXISFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_supercapacitor

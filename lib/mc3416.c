@@ -10,14 +10,14 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	
 	uint8_t reg;
 	if (HAL_OK != HAL_I2C_Mem_Read(&hi2c1, MC3416_ADDR, MC3416_ADDR, 1, &reg, 1, i2c_timeout)){
-			return INIT_ERROR;
+			return INIT_ACC_ERROR;
 	}
 
   // Stand by mode
 	DataOutBuf[0] = MC34X9_REG_MODE;
 	DataOutBuf[1] = MC34X9_MODE_STANDBY;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
-		return INIT_ERROR;
+		return INIT_ACC_ERROR;
 	}
 
   HAL_Delay(50);
@@ -26,7 +26,7 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	DataOutBuf[0] = MC34X9_REG_MOTION_CTRL;
 	DataOutBuf[1] = 0x0C;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
-		return INIT_ERROR;
+		return INIT_ACC_ERROR;
 	}
 	
 	HAL_Delay(10);
@@ -35,7 +35,7 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	DataOutBuf[0] = MC34X9_REG_INTR_CTRL;
 	DataOutBuf[1] = 0x44;//0xC0;//
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
-		return INIT_ERROR;	
+		return INIT_ACC_ERROR;	
 	}
 	
 	HAL_Delay(10);
@@ -45,13 +45,13 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	DataOutBuf[0] = MC34X9_REG_RANGE_C;
 	DataOutBuf[1] = 0x03; // 16G
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
-		return INIT_ERROR;
+		return INIT_ACC_ERROR;
 	}
 	// ODR (512 Hz)
 	DataOutBuf[0] = MC34X9_REG_SR;
 	DataOutBuf[1] = 0x02;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
-		return INIT_ERROR;
+		return INIT_ACC_ERROR;
 	}
 	// ANYMOTION THRESHOLD REGISTERS
 	DataOutBuf[0] = MC34X9_REG_AM_THRESH_LSB;	
@@ -59,23 +59,23 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	DataOutBuf[1] = TempSW&0x00ff;
 	DataOutBuf[2] = (TempSW>>8)&0x00ff;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,3,100)){
-		return INIT_ERROR;
+		return INIT_ACC_ERROR;
 	}
 	//ANYMOTION DEBOUNCE REGISTER
 	DataOutBuf[0] = MC34X9_REG_AM_DB;	
 	DataOutBuf[1] = 10;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
-		return INIT_ERROR;
+		return INIT_ACC_ERROR;
 	}
 	
   //Mode: Active
 	DataOutBuf[0] = MC34X9_REG_MODE;
 	DataOutBuf[1] = MC34X9_MODE_CWAKE;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
-		return INIT_ERROR;
+		return INIT_ACC_ERROR;
 	}
 
-return INIT;
+return INIT_ACC;
 
 }
 

@@ -155,7 +155,7 @@ void EXTI2_3_IRQHandler(void)
   /* USER CODE BEGIN EXTI2_3_IRQn 1 */
 	if(state_system.current_step == STEP_COMMAND_SANCTION){
 		if(state_system.status_supercapacitor == CHARGE){
-			state_system.current_step = STEP_EXPLOSION;
+			state_system.current_step = STEP_COMMAND_ACTIVATE;
 		}
 	}
   /* USER CODE END EXTI2_3_IRQn 1 */
