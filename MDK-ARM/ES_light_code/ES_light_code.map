@@ -1782,19 +1782,19 @@ Image Symbol Table
     i.control_explosion                      0x080048c4   Section        0  control_functions.o(i.control_explosion)
     i.control_supercapacitor                 0x080048ee   Section        0  control_functions.o(i.control_supercapacitor)
     i.main                                   0x08004928   Section        0  main.o(i.main)
-    i.timeout_charge                         0x08004ae4   Section        0  timer.o(i.timeout_charge)
-    i.timer_1ms_tick                         0x08004b40   Section        0  timer.o(i.timer_1ms_tick)
-    x$fpl$dleqf                              0x08004b4c   Section      100  dlef.o(x$fpl$dleqf)
-    x$fpl$drleqf                             0x08004bb0   Section      104  drlef.o(x$fpl$drleqf)
-    x$fpl$fleqf                              0x08004c18   Section       84  flef.o(x$fpl$fleqf)
-    x$fpl$fmul                               0x08004c6c   Section      176  fmul.o(x$fpl$fmul)
-    .constdata                               0x08004d1c   Section      104  system_stm32g0xx.o(.constdata)
-    x$fpl$usenofp                            0x08004d1c   Section        0  usenofp.o(x$fpl$usenofp)
-    CHANNEL_OFFSET_TAB                       0x08004d1c   Data           5  system_stm32g0xx.o(.constdata)
-    .constdata                               0x08004d84   Section      128  ddiv.o(.constdata)
-    ddiv_reciptbl                            0x08004d84   Data         128  ddiv.o(.constdata)
-    .constdata                               0x08004e04   Section       64  fdiv.o(.constdata)
-    fdiv_tab                                 0x08004e04   Data          64  fdiv.o(.constdata)
+    i.timeout_charge                         0x08004b00   Section        0  timer.o(i.timeout_charge)
+    i.timer_1ms_tick                         0x08004b5c   Section        0  timer.o(i.timer_1ms_tick)
+    x$fpl$dleqf                              0x08004b68   Section      100  dlef.o(x$fpl$dleqf)
+    x$fpl$drleqf                             0x08004bcc   Section      104  drlef.o(x$fpl$drleqf)
+    x$fpl$fleqf                              0x08004c34   Section       84  flef.o(x$fpl$fleqf)
+    x$fpl$fmul                               0x08004c88   Section      176  fmul.o(x$fpl$fmul)
+    .constdata                               0x08004d38   Section      104  system_stm32g0xx.o(.constdata)
+    x$fpl$usenofp                            0x08004d38   Section        0  usenofp.o(x$fpl$usenofp)
+    CHANNEL_OFFSET_TAB                       0x08004d38   Data           5  system_stm32g0xx.o(.constdata)
+    .constdata                               0x08004da0   Section      128  ddiv.o(.constdata)
+    ddiv_reciptbl                            0x08004da0   Data         128  ddiv.o(.constdata)
+    .constdata                               0x08004e20   Section       64  fdiv.o(.constdata)
+    fdiv_tab                                 0x08004e20   Data          64  fdiv.o(.constdata)
     .data                                    0x20000000   Section       12  stm32g0xx_hal.o(.data)
     .data                                    0x2000000c   Section        4  system_stm32g0xx.o(.data)
     .data                                    0x20000010   Section        4  control_functions.o(.data)
@@ -2057,22 +2057,22 @@ Image Symbol Table
     check_voltage                            0x0800489d   Thumb Code    36  control_functions.o(i.check_voltage)
     control_explosion                        0x080048c5   Thumb Code    42  control_functions.o(i.control_explosion)
     control_supercapacitor                   0x080048ef   Thumb Code    58  control_functions.o(i.control_supercapacitor)
-    main                                     0x08004929   Thumb Code   396  main.o(i.main)
-    timeout_charge                           0x08004ae5   Thumb Code    76  timer.o(i.timeout_charge)
-    timer_1ms_tick                           0x08004b41   Thumb Code    12  timer.o(i.timer_1ms_tick)
-    __aeabi_cdcmple                          0x08004b4d   Thumb Code     0  dlef.o(x$fpl$dleqf)
-    _dcmple                                  0x08004b4d   Thumb Code    94  dlef.o(x$fpl$dleqf)
-    __aeabi_cdrcmple                         0x08004bb1   Thumb Code     0  drlef.o(x$fpl$drleqf)
-    _drcmple                                 0x08004bb1   Thumb Code   100  drlef.o(x$fpl$drleqf)
-    __aeabi_cfcmple                          0x08004c19   Thumb Code     0  flef.o(x$fpl$fleqf)
-    _fcmple                                  0x08004c19   Thumb Code    78  flef.o(x$fpl$fleqf)
-    __aeabi_fmul                             0x08004c6d   Thumb Code     0  fmul.o(x$fpl$fmul)
-    _fmul                                    0x08004c6d   Thumb Code   172  fmul.o(x$fpl$fmul)
-    __I$use$fp                               0x08004d1c   Number         0  usenofp.o(x$fpl$usenofp)
-    AHBPrescTable                            0x08004d24   Data          64  system_stm32g0xx.o(.constdata)
-    APBPrescTable                            0x08004d64   Data          32  system_stm32g0xx.o(.constdata)
-    Region$$Table$$Base                      0x08004e44   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08004e64   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x08004929   Thumb Code   424  main.o(i.main)
+    timeout_charge                           0x08004b01   Thumb Code    76  timer.o(i.timeout_charge)
+    timer_1ms_tick                           0x08004b5d   Thumb Code    12  timer.o(i.timer_1ms_tick)
+    __aeabi_cdcmple                          0x08004b69   Thumb Code     0  dlef.o(x$fpl$dleqf)
+    _dcmple                                  0x08004b69   Thumb Code    94  dlef.o(x$fpl$dleqf)
+    __aeabi_cdrcmple                         0x08004bcd   Thumb Code     0  drlef.o(x$fpl$drleqf)
+    _drcmple                                 0x08004bcd   Thumb Code   100  drlef.o(x$fpl$drleqf)
+    __aeabi_cfcmple                          0x08004c35   Thumb Code     0  flef.o(x$fpl$fleqf)
+    _fcmple                                  0x08004c35   Thumb Code    78  flef.o(x$fpl$fleqf)
+    __aeabi_fmul                             0x08004c89   Thumb Code     0  fmul.o(x$fpl$fmul)
+    _fmul                                    0x08004c89   Thumb Code   172  fmul.o(x$fpl$fmul)
+    __I$use$fp                               0x08004d38   Number         0  usenofp.o(x$fpl$usenofp)
+    AHBPrescTable                            0x08004d40   Data          64  system_stm32g0xx.o(.constdata)
+    APBPrescTable                            0x08004d80   Data          32  system_stm32g0xx.o(.constdata)
+    Region$$Table$$Base                      0x08004e60   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08004e80   Number         0  anon$$obj.o(Region$$Table)
     uwTick                                   0x20000000   Data           4  stm32g0xx_hal.o(.data)
     uwTickPrio                               0x20000004   Data           4  stm32g0xx_hal.o(.data)
     uwTickFreq                               0x20000008   Data           4  stm32g0xx_hal.o(.data)
@@ -2097,9 +2097,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000c1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00004e84, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00004ea0, Max: 0x00008000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00004e64, Max: 0x00008000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00004e80, Max: 0x00008000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2313,18 +2313,18 @@ Memory Map of the image
     0x0800489c   0x00000028   Code   RO         3606    i.check_voltage     control_functions.o
     0x080048c4   0x0000002a   Code   RO         3607    i.control_explosion  control_functions.o
     0x080048ee   0x0000003a   Code   RO         3608    i.control_supercapacitor  control_functions.o
-    0x08004928   0x000001bc   Code   RO           21    i.main              main.o
-    0x08004ae4   0x0000005c   Code   RO         3702    i.timeout_charge    timer.o
-    0x08004b40   0x0000000c   Code   RO         3703    i.timer_1ms_tick    timer.o
-    0x08004b4c   0x00000064   Code   RO         3755    x$fpl$dleqf         fz_ps.l(dlef.o)
-    0x08004bb0   0x00000068   Code   RO         3759    x$fpl$drleqf        fz_ps.l(drlef.o)
-    0x08004c18   0x00000054   Code   RO         3770    x$fpl$fleqf         fz_ps.l(flef.o)
-    0x08004c6c   0x000000b0   Code   RO         3772    x$fpl$fmul          fz_ps.l(fmul.o)
-    0x08004d1c   0x00000000   Code   RO         3783    x$fpl$usenofp       fz_ps.l(usenofp.o)
-    0x08004d1c   0x00000068   Data   RO         3572    .constdata          system_stm32g0xx.o
-    0x08004d84   0x00000080   Data   RO         3747    .constdata          fz_ps.l(ddiv.o)
-    0x08004e04   0x00000040   Data   RO         3764    .constdata          fz_ps.l(fdiv.o)
-    0x08004e44   0x00000020   Data   RO         3952    Region$$Table       anon$$obj.o
+    0x08004928   0x000001d8   Code   RO           21    i.main              main.o
+    0x08004b00   0x0000005c   Code   RO         3702    i.timeout_charge    timer.o
+    0x08004b5c   0x0000000c   Code   RO         3703    i.timer_1ms_tick    timer.o
+    0x08004b68   0x00000064   Code   RO         3755    x$fpl$dleqf         fz_ps.l(dlef.o)
+    0x08004bcc   0x00000068   Code   RO         3759    x$fpl$drleqf        fz_ps.l(drlef.o)
+    0x08004c34   0x00000054   Code   RO         3770    x$fpl$fleqf         fz_ps.l(flef.o)
+    0x08004c88   0x000000b0   Code   RO         3772    x$fpl$fmul          fz_ps.l(fmul.o)
+    0x08004d38   0x00000000   Code   RO         3783    x$fpl$usenofp       fz_ps.l(usenofp.o)
+    0x08004d38   0x00000068   Data   RO         3572    .constdata          system_stm32g0xx.o
+    0x08004da0   0x00000080   Data   RO         3747    .constdata          fz_ps.l(ddiv.o)
+    0x08004e20   0x00000040   Data   RO         3764    .constdata          fz_ps.l(fdiv.o)
+    0x08004e60   0x00000020   Data   RO         3952    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000d00, Max: 0x00002000, ABSOLUTE)
@@ -2351,7 +2351,7 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
       1124        152          0          4          0       5145   control_functions.o
-      1366        124          0          0        640     440348   main.o
+      1394        124          0          0        640     440376   main.o
        396         16          0          1          0       1380   mc3416.o
         56         26        192          0       2560        616   startup_stm32g031xx.o
        220         38          0         12          0      17605   stm32g0xx_hal.o
@@ -2373,7 +2373,7 @@ Image component sizes
        104         16          0          8          0       1234   timer.o
 
     ----------------------------------------------------------------------
-     15956        890        328         32       3200     581722   Object Totals
+     15984        890        328         32       3200     581750   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         30          0          0          3          0          0   (incl. Padding)
 
@@ -2444,15 +2444,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     19548        996        520         32       3296     577598   Grand Totals
-     19548        996        520         32       3296     577598   ELF Image Totals
-     19548        996        520         32          0          0   ROM Totals
+     19576        996        520         32       3296     577626   Grand Totals
+     19576        996        520         32       3296     577626   ELF Image Totals
+     19576        996        520         32          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                20068 (  19.60kB)
+    Total RO  Size (Code + RO Data)                20096 (  19.63kB)
     Total RW  Size (RW Data + ZI Data)              3328 (   3.25kB)
-    Total ROM Size (Code + RO Data + RW Data)      20100 (  19.63kB)
+    Total ROM Size (Code + RO Data + RW Data)      20128 (  19.66kB)
 
 ==============================================================================
 

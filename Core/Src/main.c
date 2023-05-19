@@ -162,19 +162,21 @@ int main(void)
 			}
 			case STEP_COMMAND_CHARGE:{
 				control_supercapacitor(SET,&state_system);
+				control_explosion(RESET);
 			break;
 			}
 			case STEP_COMMAND_SANCTION:{
-			
+				control_explosion(RESET);
 			break;
 			}
 			case STEP_COMMAND_ACTIVATE:{
 				if(state_system.status_supercapacitor == CHARGE){
-				control_explosion(SET);
+					control_explosion(SET);
 				}
 			break;
 			case STEP_ERROR:{
-
+				control_supercapacitor(RESET,&state_system);
+				control_explosion(RESET);
 			break;
 			}
 			default:{
