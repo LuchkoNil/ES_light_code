@@ -131,15 +131,32 @@ int main(void)
 		if(state_system.flag_new_cmd == 1){
 				state_system.flag_new_cmd = 0;
 				check_PWM(&state_system);
+		}
+		
+		if(HAL_OK == MC3416Read(&hi2c1, &state_accel)){
+			if((fabs(state_accel.Ax) >= state_system.acceleration)||(fabs(state_accel.Ay) >= state_system.acceleration)||(fabs(state_accel.Az) >= state_system.acceleration)){
+				if((state_system.step_init == STEP_COMMAND_INIT)&&(state_system.step_ready == STEP_COMMAND_READY)&&(state_system.step_charge == STEP_COMMAND_CHARGE)){
+					if(state_system.current_step == STEP_COMMAND_SANCTION){
+						if(state_system.status_supercapacitor == CHARGE){
+							state_system.current_step = STEP_COMMAND_ACTIVATE;
+						}
+					}
+				}
 			}
+		}
 			
 		switch (state_system.current_step) {
 			case STEP_INIT_ACCELETOMETER:{
 				control_supercapacitor(RESET,&state_system);
 				control_explosion(RESET);
 				
+				state_system.step_init = STEP_NO;
+				state_system.step_ready = STEP_NO;
+				state_system.step_charge = STEP_NO;
+				
 				if((state_system.status_init == INIT_ACC_NO)||(state_system.status_init == INIT_ACC_ERROR)){
 					state_system.status_init = MC34X9_Init(&state_system);
+					//state_system.status_init = INIT_ACC;
 				}
 				
 				if(state_system.status_init == INIT_ACC_ERROR){
@@ -151,30 +168,47 @@ int main(void)
 			break;
 			}
 			case STEP_COMMAND_INIT:{
+				state_system.step_init = STEP_COMMAND_INIT;
+				state_system.step_ready = STEP_NO;
+				state_system.step_charge = STEP_NO;
+				
 				control_supercapacitor(RESET,&state_system);
 				control_explosion(RESET);
 			break;
 			}
 			case STEP_COMMAND_READY:{
+				state_system.step_ready = STEP_COMMAND_READY;
+				state_system.step_charge = STEP_NO;
+				
 				control_supercapacitor(RESET,&state_system);
 				control_explosion(RESET);
 			break;
 			}
 			case STEP_COMMAND_CHARGE:{
+				state_system.step_charge = STEP_COMMAND_CHARGE;
+				
 				control_supercapacitor(SET,&state_system);
 				control_explosion(RESET);
 			break;
 			}
 			case STEP_COMMAND_SANCTION:{
-				control_explosion(RESET);
+				if((state_system.step_init == STEP_COMMAND_INIT)&&(state_system.step_ready == STEP_COMMAND_READY)&&(state_system.step_charge == STEP_COMMAND_CHARGE)){
+					control_explosion(RESET);
+				}
 			break;
 			}
 			case STEP_COMMAND_ACTIVATE:{
-				if(state_system.status_supercapacitor == CHARGE){
-					control_explosion(SET);
+				if((state_system.step_init == STEP_COMMAND_INIT)&&(state_system.step_ready == STEP_COMMAND_READY)&&(state_system.step_charge == STEP_COMMAND_CHARGE)){
+					if(state_system.status_supercapacitor == CHARGE){
+						control_explosion(SET);
+					}
 				}
 			break;
 			case STEP_ERROR:{
+				state_system.step_init = STEP_NO;
+				state_system.step_ready = STEP_NO;
+				state_system.step_charge = STEP_NO;
+				
 				control_supercapacitor(RESET,&state_system);
 				control_explosion(RESET);
 			break;

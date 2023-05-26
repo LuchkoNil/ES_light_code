@@ -79,22 +79,18 @@ return INIT_ACC;
 
 }
 
-uint8_t MC34X9Read(I2C_HandleTypeDef *hi2cx, uint8_t add, TS_state_accel *state_accel){
+uint8_t MC3416Read(I2C_HandleTypeDef *hi2cx, TS_state_accel *state_accel){
 	
-uint8_t Result = 0;	
 int16_t TempSW;	
 uint8_t DataOutBuf[6] = {0};
 uint8_t DataInBuf[6] = {0};
 
 	DataOutBuf[0] = MC34X9_REG_XOUT_EX_L;
-	if (HAL_OK == HAL_I2C_Master_Transmit(hi2cx,add,DataOutBuf,1,100)){
-		Result = HAL_OK;	
-	}else{
-		Result = HAL_ERROR;	
+	if (HAL_OK != HAL_I2C_Master_Transmit(hi2cx,MC3416_ADDR,DataOutBuf,1,100)){
+		return HAL_ERROR;	
 	}
 	
-	if (HAL_OK == HAL_I2C_Master_Receive(hi2cx,add,&DataInBuf[0],6,100)){
-		Result = HAL_OK;	
+	if (HAL_OK == HAL_I2C_Master_Receive(hi2cx,MC3416_ADDR,&DataInBuf[0],6,100)){	
 		TempSW = (DataInBuf[1]<<8)|DataInBuf[0]; 
 		state_accel->Ax = TempSW*16.0/0x7fff; 
 		TempSW = (DataInBuf[3]<<8)|DataInBuf[2];
@@ -102,28 +98,21 @@ uint8_t DataInBuf[6] = {0};
 		TempSW = (DataInBuf[5]<<8)|DataInBuf[4];
 		state_accel->Az = TempSW*16.0/0x7fff; 
 		
-		for (int i = 0;i<3;i++){
-			if(fabs(state_accel->Ax > state_accel->Ax_MAX)){ 
+		if(fabs(state_accel->Ax) > state_accel->Ax_MAX){ 
 				state_accel->Ax_MAX = fabs(state_accel->Ax);
 			}
-		}
-
-		for (int i = 0;i<3;i++){
-			if(fabs(state_accel->Ay > state_accel->Ay_MAX)){ 
+		
+			if(fabs(state_accel->Ay) > state_accel->Ay_MAX){ 
 				state_accel->Ay_MAX = fabs(state_accel->Ay);
 			}
-		}
 
-		for (int i = 0;i<3;i++){
-			if(fabs(state_accel->Az > state_accel->Az_MAX)){ 
+			if(fabs(state_accel->Az) > state_accel->Az_MAX){ 
 				state_accel->Az_MAX = fabs(state_accel->Az);
 			}
-		}
 		
 	}else{
-		Result = HAL_ERROR;	
+		return HAL_ERROR;
 	}
-	return Result;
+	return HAL_OK;
 }
-
 

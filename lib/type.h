@@ -31,8 +31,9 @@ typedef enum{
   STEP_COMMAND_SANCTION = 0x4675,
 	STEP_COMMAND_ACTIVATE = 0x5130,
 	
+	STEP_NO = 0xAAAA,
 	STEP_ERROR = 0xFFFF,
-}TE_current_step;
+}TE_step;
 
 typedef enum{
   INIT_ACC_NO = 0,
@@ -41,7 +42,11 @@ typedef enum{
 }TE_init;
 
 typedef struct {
-	TE_current_step current_step;
+	TE_step current_step;
+	
+	TE_step step_init;
+	TE_step step_ready;
+	TE_step step_charge;
 	
 	TE_command command;
 	TE_command wait_command;

@@ -153,9 +153,11 @@ void EXTI2_3_IRQHandler(void)
   /* USER CODE END EXTI2_3_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(INT_Pin);
   /* USER CODE BEGIN EXTI2_3_IRQn 1 */
-	if(state_system.current_step == STEP_COMMAND_SANCTION){
-		if(state_system.status_supercapacitor == CHARGE){
-			state_system.current_step = STEP_COMMAND_ACTIVATE;
+	if((state_system.step_init == STEP_COMMAND_INIT)&&(state_system.step_ready == STEP_COMMAND_READY)&&(state_system.step_charge == STEP_COMMAND_CHARGE)){
+		if(state_system.current_step == STEP_COMMAND_SANCTION){
+			if(state_system.status_supercapacitor == CHARGE){
+				state_system.current_step = STEP_COMMAND_ACTIVATE;
+			}
 		}
 	}
   /* USER CODE END EXTI2_3_IRQn 1 */

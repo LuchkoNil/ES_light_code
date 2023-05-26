@@ -16,8 +16,12 @@ void control_supercapacitor(FlagStatus state, TS_state_system *state_system){
 
 void check_voltage(TS_state_system *state_system){
 	if(state_system->status_supercapacitor == CHARGE){
-		if(state_system->voltage <= VOLTAGE_EXP){
-			state_system->current_step = STEP_COMMAND_ACTIVATE;
+		if((state_system->step_init == STEP_COMMAND_INIT)&&(state_system->step_ready == STEP_COMMAND_READY)&&(state_system->step_charge == STEP_COMMAND_CHARGE)){
+			if(state_system->current_step == STEP_COMMAND_SANCTION){
+				if(state_system->voltage <= VOLTAGE_EXP){
+					state_system->current_step = STEP_COMMAND_ACTIVATE;
+				}
+			}
 		}
 	}
 }
@@ -49,7 +53,7 @@ void check_PWM(TS_state_system *state_system){
 				}
 			}else
 			if( state_system->wait_command > state_system->command){
-				state_system->current_step =  (TE_current_step)state_system->command;
+				state_system->current_step =  (TE_step)state_system->command;
 				
 				if(state_system->command == COMMAND_INIT){
 					state_system->wait_command = COMMAND_READY;

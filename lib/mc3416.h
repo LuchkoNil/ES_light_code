@@ -103,7 +103,7 @@ typedef enum{
 }   MC34X9_fifo_int_t;
 
 TE_init MC34X9_Init(TS_state_system *state_system);
-uint8_t MC34X9Read(I2C_HandleTypeDef *hi2cx, uint8_t add, TS_state_accel *state_accel);
+uint8_t MC3416Read(I2C_HandleTypeDef *hi2cx, TS_state_accel *state_accel);
 
 #endif
 

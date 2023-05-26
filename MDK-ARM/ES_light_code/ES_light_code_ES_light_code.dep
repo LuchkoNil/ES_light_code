@@ -1,6 +1,6 @@
 Dependencies for Project 'ES_light_code', Target 'ES_light_code': (DO NOT MODIFY !)
 F (startup_stm32g031xx.s)(0x646631AC)(--cpu Cortex-M0+ -g --apcs=interwork -I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include--pd "__UVISION_VERSION SETA 517" --pd "_RTE_ SETA 1" --pd "STM32G031xx SETA 1"--list startup_stm32g031xx.lst --xref -o es_light_code\startup_stm32g031xx.o --depend es_light_code\startup_stm32g031xx.d)
-F (../Core/Src/main.c)(0x6467619F)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\main.o --omf_browse es_light_code\main.crf --depend es_light_code\main.d)
+F (../Core/Src/main.c)(0x64712BFC)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\main.o --omf_browse es_light_code\main.crf --depend es_light_code\main.d)
 I (../Core/Inc/main.h)(0x6448360B)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h)(0x643BF819)
 I (../Core/Inc/stm32g0xx_hal_conf.h)(0x6443174F)
@@ -39,13 +39,13 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h)(0x643BF819)
-I (../lib/type.h)(0x6466325F)
-I (../lib/config.h)(0x64676150)
-I (../lib/mc3416.h)(0x64483B79)
+I (../lib/type.h)(0x6471244A)
+I (../lib/config.h)(0x64712BB0)
+I (../lib/mc3416.h)(0x64712643)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB71C6)
 I (../lib/control_functions.h)(0x644809FC)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x55DB71CE)
-F (../Core/Src/stm32g0xx_it.c)(0x64663559)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\stm32g0xx_it.o --omf_browse es_light_code\stm32g0xx_it.crf --depend es_light_code\stm32g0xx_it.d)
+F (../Core/Src/stm32g0xx_it.c)(0x64712517)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\stm32g0xx_it.o --omf_browse es_light_code\stm32g0xx_it.crf --depend es_light_code\stm32g0xx_it.d)
 I (../Core/Inc/main.h)(0x6448360B)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h)(0x643BF819)
 I (../Core/Inc/stm32g0xx_hal_conf.h)(0x6443174F)
@@ -84,9 +84,9 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h)(0x643BF819)
-I (../lib/type.h)(0x6466325F)
-I (../lib/config.h)(0x64676150)
-I (../lib/mc3416.h)(0x64483B79)
+I (../lib/type.h)(0x6471244A)
+I (../lib/config.h)(0x64712BB0)
+I (../lib/mc3416.h)(0x64712643)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB71C6)
 I (../lib/control_functions.h)(0x644809FC)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x55DB71CE)
@@ -131,9 +131,9 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h)(0x643BF819)
-I (../lib/type.h)(0x6466325F)
-I (../lib/config.h)(0x64676150)
-I (../lib/mc3416.h)(0x64483B79)
+I (../lib/type.h)(0x6471244A)
+I (../lib/config.h)(0x64712BB0)
+I (../lib/mc3416.h)(0x64712643)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB71C6)
 I (../lib/control_functions.h)(0x644809FC)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x55DB71CE)
@@ -900,9 +900,9 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h)(0x643BF819)
-F (..\lib\control_functions.c)(0x64663541)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\control_functions.o --omf_browse es_light_code\control_functions.crf --depend es_light_code\control_functions.d)
+F (..\lib\control_functions.c)(0x6471353D)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\control_functions.o --omf_browse es_light_code\control_functions.crf --depend es_light_code\control_functions.d)
 I (..\lib\control_functions.h)(0x644809FC)
-I (..\lib\type.h)(0x6466325F)
+I (..\lib\type.h)(0x6471244A)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h)(0x643BF819)
 I (../Core/Inc/stm32g0xx_hal_conf.h)(0x6443174F)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h)(0x643BF819)
@@ -941,13 +941,13 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h)(0x643BF819)
 I (../Core/Inc/main.h)(0x6448360B)
-I (../lib/config.h)(0x64676150)
-I (../lib/mc3416.h)(0x64483B79)
+I (../lib/config.h)(0x64712BB0)
+I (../lib/mc3416.h)(0x64712643)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB71C6)
 I (../lib/control_functions.h)(0x644809FC)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x55DB71CE)
-F (..\lib\mc3416.c)(0x646634DD)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\mc3416.o --omf_browse es_light_code\mc3416.crf --depend es_light_code\mc3416.d)
-I (..\lib\mc3416.h)(0x64483B79)
+F (..\lib\mc3416.c)(0x64712B42)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\mc3416.o --omf_browse es_light_code\mc3416.crf --depend es_light_code\mc3416.d)
+I (..\lib\mc3416.h)(0x64712643)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB71C6)
 I (../Core/Inc/main.h)(0x6448360B)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h)(0x643BF819)
@@ -987,14 +987,14 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr_ex.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h)(0x643BF819)
-I (../lib/type.h)(0x6466325F)
-I (../lib/config.h)(0x64676150)
-I (../lib/mc3416.h)(0x64483B79)
+I (../lib/type.h)(0x6471244A)
+I (../lib/config.h)(0x64712BB0)
+I (../lib/mc3416.h)(0x64712643)
 I (../lib/control_functions.h)(0x644809FC)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x55DB71CE)
 F (..\lib\timer.c)(0x64483673)(--c99 -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections --enum_is_int -I../Core/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc -I../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G0xx/Include -I../Drivers/CMSIS/Include -I../lib-I D:\military\ES_light\ES_light_code\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32G031xx -DUSE_HAL_DRIVER -DSTM32G031xx-o es_light_code\timer.o --omf_browse es_light_code\timer.crf --depend es_light_code\timer.d)
 I (..\lib\timer.h)(0x644318B1)
-I (..\lib\type.h)(0x6466325F)
+I (..\lib\type.h)(0x6471244A)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h)(0x643BF819)
 I (../Core/Inc/stm32g0xx_hal_conf.h)(0x6443174F)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h)(0x643BF819)
@@ -1034,8 +1034,8 @@ I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim.h)(0x643BF819)
 I (../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h)(0x643BF819)
 I (..\lib\control_functions.h)(0x644809FC)
 I (../Core/Inc/main.h)(0x6448360B)
-I (../lib/config.h)(0x64676150)
-I (../lib/mc3416.h)(0x64483B79)
+I (../lib/config.h)(0x64712BB0)
+I (../lib/mc3416.h)(0x64712643)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB71C6)
 I (../lib/control_functions.h)(0x644809FC)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x55DB71CE)
