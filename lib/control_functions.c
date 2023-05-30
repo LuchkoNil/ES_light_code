@@ -109,11 +109,11 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
         
 						tmp = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
 						second = (float)tmp/1000000;
-            state_system.frequency = 1/second;
+            state_system.frequency_pwm = 1/second;
             state_system.msWidth = (float)HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2)/1000;
 						//state_system.flag_check_PWM = 1;
 					
-						if(49 < state_system.frequency < 52){
+					if((PWM_min < state_system.frequency_pwm)&&( state_system.frequency_pwm< PWM_max)){
 		
 							if(( InitPWM_min < state_system.msWidth)&&(state_system.msWidth < InitPWM_max)){
 								state_system.command = COMMAND_INIT;

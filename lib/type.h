@@ -64,7 +64,7 @@ typedef struct {
 	float voltage;
 	float temperature;
 	
-	float frequency;
+	float frequency_pwm;
 	float msWidth;
 
 	uint8_t acceleration;

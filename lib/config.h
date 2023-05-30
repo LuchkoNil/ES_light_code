@@ -12,17 +12,17 @@
 #define MC3416_ADDR (0x4C<<1) 
 
 
-#define PWM_min   				800
-#define PWM_max   				2500
+#define PWM_min   				49
+#define PWM_max   				52
 
 #define InitPWM_min   		0.9
 #define InitPWM_max   		1
 
-#define ReadyPWM_min   		1.1
-#define ReadyPWM_max   		1.2
+#define ReadyPWM_min   		1.4
+#define ReadyPWM_max   		1.5
 
-#define ChargePWM_min    	1.4
-#define ChargePWM_max   	1.5
+#define ChargePWM_min    	1.1
+#define ChargePWM_max   	1.2
 
 #define SanctionPWM_min   1.7
 #define SanctionPWM_max   1.8
@@ -31,6 +31,6 @@
 #define ActivatePWM_max   2.1
 
 
-#define VERSION 3.3
+#define VERSION 3.4
 
 #endif
