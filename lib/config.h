@@ -31,6 +31,6 @@
 #define ActivatePWM_max   2.1
 
 
-#define VERSION 3.4
+#define VERSION 3.5
 
 #endif
