@@ -15,7 +15,7 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 
   // Stand by mode
 	DataOutBuf[0] = MC34X9_REG_MODE;
-	DataOutBuf[1] = 0x00;
+	DataOutBuf[1] = MC34X9_MODE_STANDBY;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
 		return INIT_ACC_ERROR;
 	}
@@ -24,7 +24,7 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 
 	//  MOTION CONTROL REGISTER(SHAKE_EN and ANYM_EN)
 	DataOutBuf[0] = MC34X9_REG_MOTION_CTRL;
-	DataOutBuf[1] = 0x04;
+	DataOutBuf[1] = 0x0C;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
 		return INIT_ACC_ERROR;
 	}
@@ -33,7 +33,7 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	
   // INTERRUPT ENABLE REGISTER (AUTO_CLR_EN and ANYM_INT_EN)
 	DataOutBuf[0] = MC34X9_REG_INTR_CTRL;
-	DataOutBuf[1] = 0x44;
+	DataOutBuf[1] = 0x44;//0xC0;//
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
 		return INIT_ACC_ERROR;	
 	}
@@ -43,13 +43,13 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	
 	//RANGE AND SCALE CONTROL REGISTER
 	DataOutBuf[0] = MC34X9_REG_RANGE_C;
-	DataOutBuf[1] = 0x39; // 16G
+	DataOutBuf[1] = 0x03; // 16G
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
 		return INIT_ACC_ERROR;
 	}
 	// ODR (512 Hz)
 	DataOutBuf[0] = MC34X9_REG_SR;
-	DataOutBuf[1] = 0x05;
+	DataOutBuf[1] = 0x02;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
 		return INIT_ACC_ERROR;
 	}
@@ -63,14 +63,14 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	}
 	//ANYMOTION DEBOUNCE REGISTER
 	DataOutBuf[0] = MC34X9_REG_AM_DB;	
-	DataOutBuf[1] = 0x0A;
+	DataOutBuf[1] = 10;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
 		return INIT_ACC_ERROR;
 	}
 	
   //Mode: Active
 	DataOutBuf[0] = MC34X9_REG_MODE;
-	DataOutBuf[1] = 0x01;
+	DataOutBuf[1] = MC34X9_MODE_CWAKE;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
 		return INIT_ACC_ERROR;
 	}
