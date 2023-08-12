@@ -65,6 +65,7 @@ static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 __align(4) TS_state_system state_system;
 __align(4) TS_state_accel state_accel;
+__align(4) TS_state_debug state_debug;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -133,17 +134,22 @@ int main(void)
 				check_PWM(&state_system);
 		}
 		
-		if(HAL_OK == MC3416Read(&hi2c1, &state_accel)){
-			if((fabs(state_accel.Ax) >= state_system.acceleration)||(fabs(state_accel.Ay) >= state_system.acceleration)||(fabs(state_accel.Az) >= state_system.acceleration)){
-				if((state_system.step_init == STEP_COMMAND_INIT)&&(state_system.step_ready == STEP_COMMAND_READY)&&(state_system.step_charge == STEP_COMMAND_CHARGE)){
-					if(state_system.current_step == STEP_COMMAND_SANCTION){
-						if(state_system.status_supercapacitor == CHARGE){
-							state_system.current_step = STEP_COMMAND_ACTIVATE;
+		//send_debug_data(&hi2c1, &state_system, &state_accel);
+		
+		if(state_system.status_init == INIT_ACC){
+			if(HAL_OK == MC3416Read(&hi2c1, &state_system, &state_accel)){
+				
+				if((fabs(state_accel.Ax) >= state_system.acceleration)||(fabs(state_accel.Ay) >= state_system.acceleration)||(fabs(state_accel.Az) >= state_system.acceleration)){
+					if((state_system.step_init == STEP_COMMAND_INIT)&&(state_system.step_ready == STEP_COMMAND_READY)&&(state_system.step_charge == STEP_COMMAND_CHARGE)){
+						if(state_system.current_step == STEP_COMMAND_SANCTION){
+							if(state_system.status_supercapacitor == CHARGE){
+								state_system.current_step = STEP_COMMAND_ACTIVATE;
+							}
 						}
 					}
 				}
 			}
-		}
+	}
 			
 		switch (state_system.current_step) {
 			case STEP_INIT_ACCELETOMETER:{
@@ -366,7 +372,7 @@ static void MX_I2C1_Init(void)
 
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.Timing = 0x00602173;
+  hi2c1.Init.Timing = 0x00300B29;
   hi2c1.Init.OwnAddress1 = 0;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
@@ -392,6 +398,10 @@ static void MX_I2C1_Init(void)
   {
     Error_Handler();
   }
+
+  /** I2C Fast mode Plus enable
+  */
+  HAL_I2CEx_EnableFastModePlus(I2C_FASTMODEPLUS_I2C1);
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
@@ -548,6 +558,8 @@ static void MX_DMA_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOB_CLK_ENABLE();
@@ -556,11 +568,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, ACTIVATE_Pin|CHARGE_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : INT_Pin */
-  GPIO_InitStruct.Pin = INT_Pin;
+  /*Configure GPIO pin : ACC_INT_Pin */
+  GPIO_InitStruct.Pin = ACC_INT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(INT_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(ACC_INT_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ACTIVATE_Pin CHARGE_Pin */
   GPIO_InitStruct.Pin = ACTIVATE_Pin|CHARGE_Pin;
@@ -570,9 +582,11 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI2_3_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI2_3_IRQn);
+  HAL_NVIC_SetPriority(EXTI0_1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_1_IRQn);
 
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */

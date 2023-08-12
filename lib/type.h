@@ -68,7 +68,8 @@ typedef struct {
 	float msWidth;
 
 	uint8_t acceleration;
-
+	uint8_t ID_ACC;
+	uint8_t count_error_read_acc;
 }TS_state_system;
 
 typedef struct {
@@ -77,11 +78,17 @@ typedef struct {
 	double Ay;
 	double Az;
 	
-	double Ax_MAX;
+	uint8_t Ax_MAX;
 	double Ay_MAX;
 	double Az_MAX;
 	
 }TS_state_accel;
 
+typedef struct {
+	uint16_t x;
+	uint16_t y;
+	uint16_t z;
+	uint16_t status;
+}TS_state_debug;
 
 #endif

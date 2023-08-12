@@ -1,5 +1,10 @@
 #include "control_functions.h"
 
+#include "stdio.h"
+#include "string.h"
+
+extern TS_state_debug state_debug;
+
 void control_supercapacitor(FlagStatus state, TS_state_system *state_system){
 
 	if(state == SET){
@@ -140,3 +145,39 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
         }
     }
 }
+/*
+void send_data(uint8_t *buff, uint16_t size) {
+	HAL_Delay(10);
+  for (uint16_t i = 0; i < size; i++) {
+		while (!LL_USART_IsActiveFlag_TXE(USART2)) {};
+		LL_USART_TransmitData8(USART2,  buff[i]);
+		while (!LL_USART_IsActiveFlag_TC(USART2)) {};
+  }
+	HAL_Delay(10);
+}
+
+void send_debug_data(I2C_HandleTypeDef *hi2c, TS_state_system *state_system, TS_state_accel *state_accel){
+	
+	static char output_buffer[50]= {0};
+	
+	static uint8_t clear_console[9] = {0x1B, 0x5B, 0x32, 0x4A, 0x00,0x1B,0x5B, 0x48, 0x00};
+	send_data((unsigned char * ) & clear_console[0],9);
+	
+	static char str_1[] =  "AX_MAX:";
+	static char str_2[] =  "AY_MAX:";
+	static char str_3[] =  "AZ_MAX:";
+	static char str_4[] =  "COUNT_ERR:";
+	static char str_5[] =  "INIT_ACC:";
+	
+	//sprintf(output_buffer, "%s%.2f\r\n %s%.2f\r\n %s%.2f\r\n %s%d\r\n %s%d\r\n", 
+	sprintf(output_buffer, "%s%d\r\n %s%d\r\n %s%d\r\n %s%d\r\n %s%d\r\n", 
+
+	str_1, state_debug.x, str_2, state_debug.y, str_3, state_debug.z, str_4, state_system ->count_error_read_acc , str_5, state_system->status_init);
+
+  
+	send_data((unsigned char * ) &output_buffer[0], strlen(output_buffer));
+	
+  memset(output_buffer, 0, sizeof(output_buffer));
+}
+
+*/

@@ -60,9 +60,9 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define INT_Pin GPIO_PIN_2
-#define INT_GPIO_Port GPIOA
-#define INT_EXTI_IRQn EXTI2_3_IRQn
+#define ACC_INT_Pin GPIO_PIN_1
+#define ACC_INT_GPIO_Port GPIOA
+#define ACC_INT_EXTI_IRQn EXTI0_1_IRQn
 #define PWM_IN_Pin GPIO_PIN_8
 #define PWM_IN_GPIO_Port GPIOA
 #define ACTIVATE_Pin GPIO_PIN_12

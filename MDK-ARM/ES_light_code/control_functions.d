@@ -46,3 +46,5 @@ es_light_code\control_functions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 es_light_code\control_functions.o: ../Core/Inc/main.h
 es_light_code\control_functions.o: ../lib/control_functions.h
 es_light_code\control_functions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+es_light_code\control_functions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+es_light_code\control_functions.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

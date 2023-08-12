@@ -4,13 +4,12 @@
 #include "stm32g0xx_hal.h"
 // 120000// 2 min
 
-#define TIMEOUT_CHARGE 300000// 5 min
+#define TIMEOUT_CHARGE 300000/2 // 5 min
 #define TIMEOUT_DISCHARGE 240000 // 4 min
 
 #define VOLTAGE_EXP 2.0
 #define ACCELERATION 15 
 #define MC3416_ADDR (0x4C<<1) 
-
 
 #define PWM_min   				49
 #define PWM_max   				52
@@ -31,6 +30,6 @@
 #define ActivatePWM_max   2.1
 
 
-#define VERSION 3.4
+#define VERSION 4.0
 
 #endif

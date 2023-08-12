@@ -3,52 +3,72 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.17.0.0
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: user user, user, LIC=TJWP0-BT33H-MQD0U-S1JPD-5KID7-MHBR0
+IDE-Version: µVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: me me, me, LIC=ZC93N-YDRE4-59SGD-85UIG-J0CQY-3UNVB
  
 Tool Versions:
-Toolchain:       MDK-ARM Standard Cortex-M only  Version: 5.17
+Toolchain:       MDK-ARM Essential  Version: 5.36.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 1 (build 61)
-Assembler:       Armasm.exe V5.06 update 1 (build 61)
-Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
-Library Manager: ArmAr.exe V5.06 update 1 (build 61)
-Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
-CPU DLL:         SARMCM3.DLL V5.17
-Dialog DLL:      DARMCM1.DLL V1.12.0.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
-Dialog DLL:      TARMCM1.DLL V1.9.0.0
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.4.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TARMCM1.DLL V1.14.4.0
  
 <h2>Project:</h2>
 D:\military\ES_light\ES_light_code\MDK-ARM\ES_light_code.uvprojx
-Project File Date:  05/18/2023
+Project File Date:  08/12/2023
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'ES_light_code'
-"ES_light_code\ES_light_code.axf" - 0 Error(s), 0 Warning(s).
+compiling timer.c...
+compiling mc3416.c...
+..\lib\mc3416.c(10): warning:  #177-D: variable "DataInBuf"  was declared but never referenced
+  	uint8_t DataInBuf[32] = {0};
+..\lib\mc3416.c(85): warning:  #177-D: variable "DataOutBuf"  was declared but never referenced
+  uint8_t DataOutBuf[6] = {0};
+..\lib\mc3416.c: 2 warnings, 0 errors
+compiling main.c...
+compiling stm32g0xx_it.c...
+compiling stm32g0xx_hal_msp.c...
+compiling control_functions.c...
+..\lib\control_functions.c(183): warning:  #1-D: last line of file ends without a newline
+  */
+..\lib\control_functions.c: 1 warning, 0 errors
+linking...
+Program Size: Code=21216 RO-data=520 RW-data=36 ZI-data=3316  
+FromELF: creating hex file...
+"ES_light_code\ES_light_code.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
                 http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
-                ARM::CMSIS:CORE:5.5.0
+                ARM.CMSIS.5.8.0
                 CMSIS (Common Microcontroller Software Interface Standard)
    * Component: CORE Version: 5.5.0
 
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32G0xx_DFP.1.4.0.pack
+                Keil.STM32G0xx_DFP.1.4.0
+                STMicroelectronics STM32G0 Series Device Support
+
 <h2>Collection of Component include folders:</h2>
-  D:\military\ES_light\ES_light_code\MDK-ARM\RTE
-  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  C:\Keil_v5\ARM\PACK\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include
+  .\RTE\_ES_light_code
+  C:\Users\Nil\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\Nil\AppData\Local\Arm\Packs\Keil\STM32G0xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G0xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-      Source file:   CMSIS\Core\Template\ARMv8-M\tz_context.c
       Include file:  CMSIS\Core\Include\tz_context.h
-      Source file:   CMSIS\Core\Template\ARMv8-M\main_s.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

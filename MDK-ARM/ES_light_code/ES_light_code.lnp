@@ -30,6 +30,6 @@
 "es_light_code\mc3416.o"
 "es_light_code\timer.o"
 --strict --scatter "ES_light_code\ES_light_code.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "ES_light_code.map" -o ES_light_code\ES_light_code.axf
