@@ -1,13 +1,15 @@
 #include "timer.h"
 
+uint32_t timout_charge = TIMEOUT_CHARGE;
+uint32_t timout_discharge = TIMEOUT_DISCHARGE;
+	
 void timer_1ms_tick(TS_state_system *state_system){
 	timeout_charge(state_system);
 }
 
 
 void timeout_charge(TS_state_system *state_system){
-	static uint32_t timout_charge = TIMEOUT_CHARGE;
-	static uint32_t timout_discharge = TIMEOUT_DISCHARGE;
+
 	
 	if(state_system ->status_supercapacitor == CHARGING){
 	

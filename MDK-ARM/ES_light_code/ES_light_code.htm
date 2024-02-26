@@ -3,7 +3,7 @@
 <title>Static Call Graph - [ES_light_code\ES_light_code.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ES_light_code\ES_light_code.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Aug 12 19:30:44 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Oct 11 17:53:24 2023
 <BR><P>
 <H3>Maximum Stack Usage =        208 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1001,7 +1001,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM1_Init
 </UL>
 
-<P><STRONG><a name="[9c]"></a>HAL_TIM_IC_CaptureCallback</STRONG> (Thumb, 416 bytes, Stack size 32 bytes, control_functions.o(i.HAL_TIM_IC_CaptureCallback))
+<P><STRONG><a name="[9c]"></a>HAL_TIM_IC_CaptureCallback</STRONG> (Thumb, 430 bytes, Stack size 32 bytes, control_functions.o(i.HAL_TIM_IC_CaptureCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_TIM_IC_CaptureCallback &rArr; __aeabi_ddiv
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_ReadCapturedValue
@@ -1186,7 +1186,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_IC_ConfigChannel
 </UL>
 
-<P><STRONG><a name="[d0]"></a>check_PWM</STRONG> (Thumb, 192 bytes, Stack size 0 bytes, control_functions.o(i.check_PWM))
+<P><STRONG><a name="[d0]"></a>check_PWM</STRONG> (Thumb, 154 bytes, Stack size 0 bytes, control_functions.o(i.check_PWM))
 <BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1217,7 +1217,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[36]"></a>main</STRONG> (Thumb, 744 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[36]"></a>main</STRONG> (Thumb, 766 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = main &rArr; MC3416Read &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnTXISFlagUntilTimeout &rArr; I2C_IsErrorOccurred
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_supercapacitor

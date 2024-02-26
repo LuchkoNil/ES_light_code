@@ -2,10 +2,9 @@
 #define __CONFIG_H
 
 #include "stm32g0xx_hal.h"
-// 120000// 2 min
 
-#define TIMEOUT_CHARGE 300000/2 // 5 min
-#define TIMEOUT_DISCHARGE 240000 // 4 min
+#define TIMEOUT_CHARGE 70000 // 1 min 10 s
+#define TIMEOUT_DISCHARGE 70000 // 1 min 10 s
 
 #define VOLTAGE_EXP 2.0
 #define ACCELERATION 15 
@@ -14,22 +13,22 @@
 #define PWM_min   				49
 #define PWM_max   				52
 
-#define InitPWM_min   		0.9
-#define InitPWM_max   		1
+#define InitPWM_min   		1 - 0.05
+#define InitPWM_max   		1 + 0.05
 
-#define ReadyPWM_min   		1.4
-#define ReadyPWM_max   		1.5
+#define ReadyPWM_min   		1.4 - 0.05
+#define ReadyPWM_max   		1.4 + 0.05
 
-#define ChargePWM_min    	1.1
-#define ChargePWM_max   	1.2
+#define ChargePWM_min    	1.2 - 0.05
+#define ChargePWM_max   	1.2 + 0.05
 
-#define SanctionPWM_min   1.7
-#define SanctionPWM_max   1.8
+#define SanctionPWM_min   1.7 - 0.05
+#define SanctionPWM_max   1.7 + 0.05
 
-#define ActivatePWM_min   2
-#define ActivatePWM_max   2.1
+#define ActivatePWM_min   2 - 0.05
+#define ActivatePWM_max   2 + 0.05
 
 
-#define VERSION 4.0
+#define VERSION 4.1
 
 #endif

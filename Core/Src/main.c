@@ -135,15 +135,14 @@ int main(void)
 		}
 		
 		//send_debug_data(&hi2c1, &state_system, &state_accel);
-		
+
 		if(state_system.status_init == INIT_ACC){
 			if(HAL_OK == MC3416Read(&hi2c1, &state_system, &state_accel)){
-				
 				if((fabs(state_accel.Ax) >= state_system.acceleration)||(fabs(state_accel.Ay) >= state_system.acceleration)||(fabs(state_accel.Az) >= state_system.acceleration)){
 					if((state_system.step_init == STEP_COMMAND_INIT)&&(state_system.step_ready == STEP_COMMAND_READY)&&(state_system.step_charge == STEP_COMMAND_CHARGE)){
 						if(state_system.current_step == STEP_COMMAND_SANCTION){
 							if(state_system.status_supercapacitor == CHARGE){
-								state_system.current_step = STEP_COMMAND_ACTIVATE;
+							//	state_system.current_step = STEP_COMMAND_ACTIVATE;
 							}
 						}
 					}
@@ -180,6 +179,10 @@ int main(void)
 				
 				control_supercapacitor(RESET,&state_system);
 				control_explosion(RESET);
+				
+				#ifdef FPV
+				state_system.current_step = STEP_COMMAND_READY;
+				#endif
 			break;
 			}
 			case STEP_COMMAND_READY:{
@@ -193,8 +196,14 @@ int main(void)
 			case STEP_COMMAND_CHARGE:{
 				state_system.step_charge = STEP_COMMAND_CHARGE;
 				
-				control_supercapacitor(SET,&state_system);
+				if((state_system.status_supercapacitor == DISCHARGE)||(state_system.status_supercapacitor == DISCHARGING)){
+					control_supercapacitor(SET,&state_system);
+				}
 				control_explosion(RESET);
+				
+				#ifdef FPV
+				state_system.current_step = STEP_COMMAND_SANCTION;
+				#endif
 			break;
 			}
 			case STEP_COMMAND_SANCTION:{

@@ -38,7 +38,7 @@ TE_init MC34X9_Init(TS_state_system *state_system){
 	
 		// ODR (512 Hz)
 	DataOutBuf[0] = MC34X9_REG_SR;
-	DataOutBuf[1] = 0x05;
+	DataOutBuf[1] = 0x00;//0x05;
 	if (HAL_OK != HAL_I2C_Master_Transmit(&hi2c1,MC3416_ADDR,DataOutBuf,2,100)){
 		return INIT_ACC_ERROR;
 	}

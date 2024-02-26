@@ -32,9 +32,42 @@ void check_voltage(TS_state_system *state_system){
 }
 
 void check_PWM(TS_state_system *state_system){
-		
-	if(state_system->status_init != INIT_ACC)return;
+		if(state_system->status_init != INIT_ACC)return;
 					
+	#ifdef FPV
+			if( state_system->wait_command == state_system->command){
+				
+				if((state_system->command == COMMAND_INIT)&&(state_system->wait_command == COMMAND_INIT)){
+					state_system->current_step = STEP_COMMAND_INIT;
+					state_system->wait_command = COMMAND_CHARGE;
+				}else
+				if((state_system->command == COMMAND_CHARGE)&&(state_system->wait_command  == COMMAND_CHARGE)){
+					state_system->current_step = STEP_COMMAND_CHARGE;
+					state_system->wait_command = COMMAND_ACTIVATE;
+				}else
+				if((state_system->command == COMMAND_ACTIVATE)&&(state_system->wait_command  == COMMAND_ACTIVATE)){
+					state_system->current_step = STEP_COMMAND_ACTIVATE;
+				}
+			}else
+			if( state_system->wait_command > state_system->command){
+				//state_system->current_step =  (TE_step)state_system->command;
+				
+				
+				if(state_system->command == COMMAND_INIT){
+					state_system->wait_command = COMMAND_CHARGE;
+					state_system->current_step =  STEP_COMMAND_INIT;
+				}else
+				if(state_system->command == COMMAND_CHARGE){
+					state_system->wait_command = COMMAND_ACTIVATE;
+					state_system->current_step = STEP_COMMAND_CHARGE;
+				}else
+				if(state_system->command == COMMAND_ACTIVATE){
+					if((state_system->command == COMMAND_CHARGE)||(state_system->command == COMMAND_INIT)){
+						state_system->current_step =  (TE_step)state_system->command;
+					}
+				}				
+			}
+	#else
 			if( state_system->wait_command == state_system->command){
 				
 				if((state_system->command == COMMAND_INIT)&&(state_system->wait_command == COMMAND_INIT)){
@@ -60,6 +93,7 @@ void check_PWM(TS_state_system *state_system){
 			if( state_system->wait_command > state_system->command){
 				state_system->current_step =  (TE_step)state_system->command;
 				
+				
 				if(state_system->command == COMMAND_INIT){
 					state_system->wait_command = COMMAND_READY;
 				}else
@@ -74,6 +108,8 @@ void check_PWM(TS_state_system *state_system){
 				}
 			
 			}
+	#endif
+	
 }
 
 void control_explosion(FlagStatus status_explosion){
